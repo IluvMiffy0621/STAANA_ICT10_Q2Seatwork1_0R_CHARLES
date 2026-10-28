@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ICT Club Checker</title>
+
+  <!-- PyScript (runs Python in the browser) -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+
+  <style>
+    :root {
+      --blue-900: #0b2a5b;
+      --blue-600: #1f5fd1;
+      --blue-700: #174ba3;
+      --blue-100: #e6efff;
+      --blue-50: #f4f8ff;
+      --text: #12233f;
+      --muted: #5b6b85;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--blue-50);
+    }
+
+    header {
+      padding: 2.2rem 1rem;
+      text-align: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--blue-900), var(--blue-600));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.7rem, 5vw, 2.3rem);
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin: 0.4rem 0 0;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      padding: 1.6rem;
+      background: #ffffff;
+      border: 1px solid #d3e2ff;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(31, 95, 209, 0.10);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 1.1rem;
+      padding: 0.7rem 0.85rem;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--blue-50);
+      border: 1px solid #c4d6f7;
+      border-radius: 8px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 3px rgba(31, 95, 209, 0.20);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background: var(--blue-600);
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--blue-700); }
+    button:focus-visible { outline: 3px solid var(--blue-900); outline-offset: 2px; }
+
+    #result {
+      margin-top: 1.4rem;
+      padding: 1rem 1.2rem;
+      min-height: 3.6rem;
+      text-align: center;
+      color: var(--blue-900);
+      background: var(--blue-100);
+      border-radius: 10px;
+    }
+
+    footer {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #ffffff;
+      background: var(--blue-900);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ICT Club Checker</h1>
+    <p class="subtitle">Candidate Verification System</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <label for="first-name">First name</label>
+      <input type="text" id="first-name" placeholder="Carlo" autocomplete="off">
+
+      <label for="last-name">Last name</label>
+      <input type="text" id="last-name" placeholder="Villanueva" autocomplete="off">
+
+      <button id="check-button" type="button">Check</button>
+    </div>
+
+    <div id="result" aria-live="polite">Enter your name to see if you made the list.</div>
+  </main>
+
+  <footer>&copy; 2026 ICT Club &middot; Seatwork 1 &middot; 2nd Quarter</footer>
+
+  <!-- Python logic lives in main.py -->
+  <script type="py" src="./main.py"></script>
+</body>
+</html>
